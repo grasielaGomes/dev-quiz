@@ -10,6 +10,9 @@ class AppBarWidget2 extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final double _boxSize = height * .22;
+
     return Stack(
       alignment: Alignment.topCenter,
       children: [
@@ -39,8 +42,8 @@ class AppBarWidget2 extends StatelessWidget implements PreferredSizeWidget {
                     ),
                   ),
                   Container(
-                    width: height * .22,
-                    height: height * .22,
+                    width: _boxSize,
+                    height: _boxSize,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(height * .04),
                         image: DecorationImage(
