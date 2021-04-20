@@ -1,6 +1,6 @@
 # dev_quiz
 
-A new Flutter application.
+NLW#5 Flutter Project
 
 ## Getting Started
 
