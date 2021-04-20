@@ -8,7 +8,7 @@ class ScoreCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final Responsive responsive = Responsive.of(context);
     return Container(
-      height: responsive.heightPercent(12),
+      height: responsive.heightPercent(15),
       padding: EdgeInsets.all(responsive.widthPercent(2)),
       decoration: BoxDecoration(
         color: AppColors.white,

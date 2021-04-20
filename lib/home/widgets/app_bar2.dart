@@ -17,15 +17,15 @@ class AppBarWidget2 extends StatelessWidget implements PreferredSizeWidget {
       alignment: Alignment.topCenter,
       children: [
         Container(
-          height: height,
+          height: height * .75,
           decoration: BoxDecoration(
               gradient: AppGradients.linear),
         ),
         Container(
-          padding: EdgeInsets.symmetric(horizontal: height * .1),
+          padding: EdgeInsets.symmetric(horizontal: height * .09),
           child: Column(
             children: [
-              SizedBox(height: height * .4),
+              SizedBox(height: height * .3),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
