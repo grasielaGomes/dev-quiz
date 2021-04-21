@@ -1,12 +1,14 @@
 import 'package:dev_quiz/core/core.dart';
 import 'package:dev_quiz/home/widgets/score_card.dart';
+import 'package:dev_quiz/shared/models/user_model.dart';
 import 'package:flutter/material.dart';
 
 class AppBarWidget2 extends StatelessWidget implements PreferredSizeWidget {
 
   final double height;
+  final UserModel user;
 
-  AppBarWidget2({required this.height});
+  AppBarWidget2({required this.height, required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,7 @@ class AppBarWidget2 extends StatelessWidget implements PreferredSizeWidget {
                         style: AppTextStyles.title,
                         children: [
                           TextSpan(
-                              text: 'Grasiela',
+                              text: user.name,
                               style: AppTextStyles.titleBold
                           )
                         ]
@@ -47,7 +49,7 @@ class AppBarWidget2 extends StatelessWidget implements PreferredSizeWidget {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(height * .04),
                         image: DecorationImage(
-                            image: NetworkImage('https://avatars.githubusercontent.com/u/79669750?v=4'))
+                            image: NetworkImage(user.photoUrl))
 
                     ),
                   )

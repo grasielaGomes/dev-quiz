@@ -37,6 +37,7 @@ class QuizAnswer extends StatelessWidget {
           border: Border.all(color: isSelected ? _selectedBorderCardRight : AppColors.border)
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Flexible(child: Text(question, style: isSelected ? _selectedTextStyleRight : AppTextStyles.body)),
           Container(

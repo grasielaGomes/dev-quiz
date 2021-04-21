@@ -3,6 +3,12 @@ import 'package:dev_quiz/shared/widgets/custom_linear_indicator.dart';
 import 'package:flutter/material.dart';
 
 class QuizCard extends StatelessWidget {
+  final String title;
+  final int totalQuestions;
+  final int answeredQuestions;
+
+  QuizCard({required this.title, required this.totalQuestions, required this.answeredQuestions});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,15 +23,14 @@ class QuizCard extends StatelessWidget {
             width: 40,
             child: Image.asset(AppImages.blocks),
           ),
-          Text('Gerenciamento de Estado',
-              style: AppTextStyles.heading15),
+          Text(title, style: AppTextStyles.heading15),
           Row(
             children: [
-              Text('3 de 10',
+              Text('$answeredQuestions de $totalQuestions',
                   style: AppTextStyles.body11),
               SizedBox(width: 10),
               Flexible(
-                child: CustomLinearIndicator(value: 0.3),
+                child: CustomLinearIndicator(value: answeredQuestions / totalQuestions),
               )
             ],
           )

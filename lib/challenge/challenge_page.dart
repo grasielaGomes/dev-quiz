@@ -24,6 +24,10 @@ class ChallengePage extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: Container(
+        height: _responsive.heightPercent(10),
+        color: Colors.lightGreen,
+      ),
     );
   }
 }
