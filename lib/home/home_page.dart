@@ -1,3 +1,4 @@
+import 'package:dev_quiz/challenge/challenge_page.dart';
 import 'package:dev_quiz/core/core.dart';
 import 'package:dev_quiz/home/home_controller.dart';
 import 'package:dev_quiz/home/widgets/app_bar2.dart';
@@ -15,6 +16,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final HomeController controller = HomeController();
 
+
   @override
   void initState() {
     super.initState();
@@ -29,8 +31,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final Responsive responsive = Responsive.of(context);
-    if(controller.state == HomeState.success){
-      return Scaffold(
+      return controller.state == HomeState.success
+      ? Scaffold(
         appBar: AppBarWidget2(
           height: responsive.heightPercent(24),
           user: controller.user!,
@@ -57,6 +59,8 @@ class _HomePageState extends State<HomePage> {
                     mainAxisSpacing: 10,
                     crossAxisCount: 2,
                     children: controller.quizzes!.map((e) => QuizCard(
+                      onTap: () => Navigator.push(context, 
+                          MaterialPageRoute(builder: (_) => ChallengePage(questions: e.questions))),
                       title: e.title,
                       totalQuestions: e.questions.length,
                       answeredQuestions: e.questionAnswered,
@@ -65,9 +69,8 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-      );
-    } else {
-      return Scaffold(
+      )
+    : Scaffold(
         body: Center(
           child: CircularProgressIndicator(
             backgroundColor: AppColors.chartSecondary,
@@ -77,4 +80,3 @@ class _HomePageState extends State<HomePage> {
       );
     }
   }
-}
