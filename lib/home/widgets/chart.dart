@@ -16,9 +16,9 @@ class ChartWidget extends StatelessWidget {
               strokeWidth: 8,
               backgroundColor: AppColors.chartSecondary,
               valueColor: AlwaysStoppedAnimation<Color>(AppColors.chartPrimary),
-              value: .75,
+              value: 0,
             )),
-        Text('75%', style: AppTextStyles.heading, textAlign: TextAlign.center,)
+        Text('0%', style: AppTextStyles.heading, textAlign: TextAlign.center,)
       ],
     );
   }

@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 
 import 'home_state.dart';
 
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -59,6 +60,7 @@ class _HomePageState extends State<HomePage> {
                     mainAxisSpacing: 10,
                     crossAxisCount: 2,
                     children: controller.quizzes!.map((e) => QuizCard(
+                      image: e.image,
                       onTap: () => Navigator.push(context, 
                           MaterialPageRoute(builder: (_) => ChallengePage(
                             questions: e.questions,
