@@ -28,6 +28,11 @@ class CustomRoundedButton extends StatelessWidget {
         this.borderColor = Colors.transparent,
         this.textColor = AppColors.white;
 
+  CustomRoundedButton.transparent({required this.label, required this.onTap})
+      : this.color = Colors.transparent,
+        this.borderColor = Colors.transparent,
+        this.textColor = AppColors.grey;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

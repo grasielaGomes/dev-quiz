@@ -8,6 +8,7 @@ class QuizCard extends StatelessWidget {
   final int answeredQuestions;
   final VoidCallback onTap;
 
+
   QuizCard({
     required this.title,
     required this.totalQuestions,

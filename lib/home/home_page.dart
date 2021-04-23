@@ -60,7 +60,10 @@ class _HomePageState extends State<HomePage> {
                     crossAxisCount: 2,
                     children: controller.quizzes!.map((e) => QuizCard(
                       onTap: () => Navigator.push(context, 
-                          MaterialPageRoute(builder: (_) => ChallengePage(questions: e.questions))),
+                          MaterialPageRoute(builder: (_) => ChallengePage(
+                            questions: e.questions,
+                            title: e.title,
+                          ))),
                       title: e.title,
                       totalQuestions: e.questions.length,
                       answeredQuestions: e.questionAnswered,

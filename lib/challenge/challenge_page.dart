@@ -5,6 +5,7 @@ import 'package:dev_quiz/challenge/widgets/quiz_answer.dart';
 import 'package:dev_quiz/core/app_colors.dart';
 import 'package:dev_quiz/core/app_responsive.dart';
 import 'package:dev_quiz/core/app_text_styles.dart';
+import 'package:dev_quiz/score/score_page.dart';
 import 'package:dev_quiz/shared/models/question_model.dart';
 import 'package:dev_quiz/shared/widgets/custom_rounded_button.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,11 @@ bool isAnswered = false;
 class ChallengePage extends StatefulWidget {
 
   final List<QuestionModel> questions;
-  const ChallengePage({required this.questions});
+  final String title;
+  const ChallengePage({
+    required this.questions,
+    required this.title,
+  });
 
 
   @override
@@ -143,6 +148,7 @@ class _ChallengePageState extends State<ChallengePage> {
                                   isRight = answer.isRight;
                                   isAnswered = true;
                                 });
+                                controller.rightAnswer(answer.isRight);
                               } : () => null );
                         }),
                   )
@@ -167,7 +173,12 @@ class _ChallengePageState extends State<ChallengePage> {
                     });
 
                     if(pageController.page == widget.questions.length -1){
-                      Navigator.pushNamed(context, '/home');
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) =>
+                          ScorePage(
+                            title: widget.title,
+                            questions: widget.questions.length,
+                            rightAnswers: controller.answerCorrect,
+                          )));
                     } else {
                       pageController.nextPage(
                           duration: Duration(milliseconds: 100),
